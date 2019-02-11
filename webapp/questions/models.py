@@ -60,13 +60,14 @@ class Question(models.Model):
     name_spa = models.CharField(max_length=149, default='Question')
     video_spa = models.CharField(max_length=149, default='0000000')
     pdf_spa = models.FileField(upload_to=user_directory_path, null=True)
-    issuu_spa = models.URLField(max_length=149, default='https://e.issuu.com/anonymous-embed.html?u=onelmedia&d=FILE_NAME')
+    issuu_spa = models.URLField(max_length=149, default='https://e.issuu.com/anonymous-embed.html?u=onelmedia&d=craig_groeschel')
     # ENGLISH
     name_eng = models.CharField(max_length=149, default='Question')
     video_eng = models.CharField(max_length=149, default='0000000')
     # COMMON
     topic = models.ForeignKey(Topic, null=True)
     thumbnail = models.ImageField(upload_to=user_directory_path, null=True)
+    banner = models.ImageField(upload_to=user_directory_path, null=True)
     speaker = models.CharField(max_length=149, default='Speaker')
     slug = models.SlugField(max_length=149)
 

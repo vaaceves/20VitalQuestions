@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+from questions.views import logout, index_spa, index_eng, LoginUserViewSpa, LoginUserViewEng
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-]
+    url(r'^logout/$',logout, name='logout'),
+    # ENGLISH URLS
+    url(r'^$', index_eng, name='index_eng'),
+    url(r'^en/login/$', LoginUserViewEng.as_view(), name='login_eng'),
+    # SPANISH URLS
+    url(r'^es/$', index_spa, name='index_spa'),
+    url(r'^es/login/$', LoginUserViewSpa.as_view(), name='login_spa'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = '20 Vital Questions'

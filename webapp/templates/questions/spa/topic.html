@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load staticfiles %} <!DOCTYPE html>
 <html amp>
 <head>
   <!-- Site made with Mobirise Website Builder v4.9.1, https://mobirise.com -->
@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/tgls2018-logos-others-90x83-90x83.png" type="image/x-icon">
   <meta name="description" content="">
-  <title>All Videos</title>
+  <title>Todos los Videos</title>
   
 <link rel="canonical" href="all-videos.html">
  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -40,12 +40,12 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
         
         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
                 <a class="nav-link link text-black display-4" href="about.html">
-                    About</a>
+                    Acerca De</a>
             </li><li class="nav-item dropdown">
-                <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
+                <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Temas</a>
                 <div class="dropdown-menu">
-                    <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                    <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
+                    <a class="text-black dropdown-item display-4" href="topic.html">Autoliderazgo</a>
+                    <a class="text-black dropdown-item display-4" href="topic.html">Liderazgo Interpersonal</a><a class="text-black dropdown-item display-4" href="topic.html">Liderazgo Organizacional</a><a class="text-black dropdown-item display-4" href="topic.html">Liderazgo Visionario</a><a class="text-black dropdown-item display-4" href="about.html">Liderazgo de la Iglesia</a>
                 </div>
             </li><li class="nav-item">
                 <a class="nav-link link text-black display-4" href="all-videos.html">
@@ -53,8 +53,8 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
             </li></ul>
         
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
-              Contact</a><a class="btn btn-sm btn-primary display-4" href="login.html">
-             Log In</a> </div>
+              Contacto</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Cerrar Sesión</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_spa' %}">
+                  Iniciar Sesión</a>{% endif %}   </div>
       </div>
     </amp-sidebar>
   <section class="menu horizontal-menu cid-rfWb7nKSu3" id="menu1-5">
@@ -65,7 +65,7 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     <nav class="navbar navbar-dropdown  navbar-fixed-top navbar-expand-lg">
         <div class="navbar-brand">
             <span class="navbar-logo">
-                <amp-img src="assets/images/tgls2018-logos-others-90x83.png" layout="responsive" width="55.3012048192771" height="51" alt="Mobirise" class="mobirise-loader">
+                <amp-img src=" {% static 'assets/images/tgls2018-logos-others-90x83.png'  %}" layout="responsive" width="55.3012048192771" height="51" alt="Mobirise" class="mobirise-loader">
                     <div placeholder="" class="placeholder">
                                   <div class="mobirise-spinner">
                                       <em></em>
@@ -75,18 +75,18 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                     
                 </amp-img>
             </span>
-            <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5" href="index.html">The Global Leadership Summit</a></span>
+            <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5" href="{% url 'index_spa' %}">La Cumbre Global de Liderazgo</a></span>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
               
               <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
                       <a class="nav-link link text-black display-4" href="about.html">
-                          About</a>
+                          Acerca De</a>
                   </li><li class="nav-item dropdown">
-                      <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
+                      <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Temas</a>
                       <div class="dropdown-menu">
-                          <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                          <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
+                          <a class="text-black dropdown-item display-4" href="topic.html">Autoliderazgo</a>
+                          <a class="text-black dropdown-item display-4" href="topic.html">Liderazgo Interpersonal</a><a class="text-black dropdown-item display-4" href="topic.html">Liderazgo Organizacional</a><a class="text-black dropdown-item display-4" href="topic.html">Liderazgo Visionario</a><a class="text-black dropdown-item display-4" href="about.html">Liderazgo de la Iglesia</a>
                       </div>
                   </li><li class="nav-item">
                       <a class="nav-link link text-black display-4" href="all-videos.html">
@@ -94,8 +94,8 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                   </li></ul>
               
               <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
-                    Contact</a><a class="btn btn-sm btn-primary display-4" href="login.html">
-                   Log In</a> </div>
+                    Contacto</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Cerrar Sesión</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_spa' %}">
+                  Iniciar Sesión</a>{% endif %}   </div>
       </div>
       
       <button on="tap:sidebar.toggle" class="ampstart-btn hamburger sticky-but">
@@ -118,7 +118,7 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     <div class="container">
         <div class="mbr-row mbr-justify-content-center">
             <div class="mbr-col-md-12 mbr-col-lg-10">
-                <h2 class="mbr-section-title mbr-fonts-style l-spacing3 display-2 text-white">All Videos</h2>
+                <h2 class="mbr-section-title mbr-fonts-style l-spacing3 display-2 text-white">Autoliderazgo</h2>
                 
                 <svg class="arrow-icon-2" xmlns="http://www.w3.org/2000/svg" height="80" width="30" viewBox="0 0 40 80"><path d="M30.6 47.5c-.6-.5-1.6-.4-2.1.2L19 59.6V5.5c0-.8-.7-1.5-1.5-1.5S16 4.7 16 5.5v54.1L6.5 47.7c-.6-.6-1.5-.7-2.1-.2-.7.5-.8 1.5-.3 2.1l12.2 15.2c.3.4.7.6 1.2.6s.9-.2 1.2-.6l12.2-15.2c.5-.6.4-1.6-.3-2.1z"></path></svg>
                 
@@ -127,28 +127,18 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     </div>
 </section>
 
-<br>
-<br>
 
 <section class="carousel1 slider testimonials-carousel cid-rhkAWCpFwj" id="testimonials-carousel3-y">
-
-    
-    
     <div class="container">
-        <div class="text-block mbr-col-sm-12 mbr-col-md-10">
-            <h2 class="mbr-section-subtitle mbr-fonts-style align-center display-5">
-                 Self Leadership</h2>
-            
-        </div>
         <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400"><amp-fit-text width="400" height="400">
                     <div class="text-wrap">
                         <div class="text-content">
                             <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
                             <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
+                                ¿Como Convertirnos en mejores alentadores?
                             </p>
                            <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
+                            <a class="btn btn-sm btn-primary display-4" href="login.html">Ir al Video</a>
                         </div>
                     </div>
                 </amp-fit-text><amp-fit-text width="400" height="400">
@@ -156,10 +146,10 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                         <div class="text-content">
                             <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
                             <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
+                                ¿Como Convertirnos en mejores alentadores?
                             </p>
                            <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
+                            <a class="btn btn-sm btn-primary display-4" href="login.html">Ir al Video</a>
                         </div>
                     </div>
                 </amp-fit-text><amp-fit-text width="400" height="400">
@@ -167,10 +157,10 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                         <div class="text-content">
                             <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
                             <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
+                                ¿Como Convertirnos en mejores alentadores?
                             </p>
                            <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
+                            <a class="btn btn-sm btn-primary display-4" href="login.html">Ir al Video</a>
                         </div>
                     </div>
                 </amp-fit-text><amp-fit-text width="400" height="400">
@@ -178,10 +168,10 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                         <div class="text-content">
                             <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
                             <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
+                                ¿Como Convertirnos en mejores alentadores?
                             </p>
                            <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
+                            <a class="btn btn-sm btn-primary display-4" href="login.html">Ir al Video</a>
                         </div>
                     </div>
                 </amp-fit-text><amp-fit-text width="400" height="400">
@@ -189,10 +179,10 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                         <div class="text-content">
                             <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
                             <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
+                                ¿Como Convertirnos en mejores alentadores?
                             </p>
                            <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
+                            <a class="btn btn-sm btn-primary display-4" href="login.html">Ir al Video</a>
                         </div>
                     </div>
                 </amp-fit-text></amp-carousel>
@@ -201,228 +191,8 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     </div>
 </section>
 
-
-<section class="carousel1 slider testimonials-carousel cid-rhkAWCpFwj" id="testimonials-carousel3-y">
-
-    
-    
-        <div class="container">
-            <div class="text-block mbr-col-sm-12 mbr-col-md-10">
-                <h2 class="mbr-section-subtitle mbr-fonts-style align-center display-5">
-                     Interpersonal Leadership</h2>
-                
-            </div>
-            <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400"><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                            <div class="text-wrap">
-                                <div class="text-content">
-                                    <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                    <p class="mbr-fonts-style mbr-text card-text display-7">
-                                        How can we become better encouragers?
-                                    </p>
-                                   <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                                </div>
-                            </div>
-                        </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text></amp-carousel>
-                
-            </div>
-        </div>
-    </section>
-
-
-<section class="carousel1 slider testimonials-carousel cid-rhkAWCpFwj" id="testimonials-carousel3-y">
-
-    
-    
-        <div class="container">
-            <div class="text-block mbr-col-sm-12 mbr-col-md-10">
-                <h2 class="mbr-section-subtitle mbr-fonts-style align-center display-5">
-                     Organizational Leadership</h2>
-                
-            </div>
-            <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400"><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                            <div class="text-wrap">
-                                <div class="text-content">
-                                    <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                    <p class="mbr-fonts-style mbr-text card-text display-7">
-                                        How can we become better encouragers?
-                                    </p>
-                                   <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                                </div>
-                            </div>
-                        </amp-fit-text></amp-carousel>
-                
-            </div>
-        </div>
-    </section>
-
-
-<section class="carousel1 slider testimonials-carousel cid-rhkAWCpFwj" id="testimonials-carousel3-y">
-
-    
-    
-        <div class="container">
-            <div class="text-block mbr-col-sm-12 mbr-col-md-10">
-                <h2 class="mbr-section-subtitle mbr-fonts-style align-center display-5">
-                     Visionary Leadership</h2>
-                
-            </div>
-            <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400"><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text></amp-carousel>
-                
-            </div>
-        </div>
-    </section>
-
-
-<section class="carousel1 slider testimonials-carousel cid-rhkAWCpFwj" id="testimonials-carousel3-y">
-
-    
-    
-        <div class="container">
-            <div class="text-block mbr-col-sm-12 mbr-col-md-10">
-                <h2 class="mbr-section-subtitle mbr-fonts-style align-center display-5">
-                     Liderazgo de Iglesia</h2>
-                
-            </div>
-            <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400"><amp-fit-text width="400" height="400">
-                        <div class="text-wrap">
-                            <div class="text-content">
-                                <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                                <p class="mbr-fonts-style mbr-text card-text display-7">
-                                    How can we become better encouragers?
-                                </p>
-                               <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                            </div>
-                        </div>
-                    </amp-fit-text></amp-carousel>
-                
-            </div>
-        </div>
-    </section>
-
+<br>
+<br>
 
 <section class="footer3 cid-rfWh3Dg8Yj" id="footer3-6">
 
@@ -434,7 +204,7 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
         <div class="mbr-row mbr-justify-content-center align-center">
             
             <div class="mbr-col-sm-12 mbr-col-md-12 text2 mbr-col-lg-10">
-                <p class="copyright mbr-text mbr-fonts-style mbr-bold display-7" style="font-size:10px;"><span>© 2018 Willow Creek Association.  All rights reserved. Unauthorized distribution is prohibited. P.O. Box 3188 Barrington, IL 600011-3188. WARNING: No copies of this content, in whole or in part, may be made for any reaseon or porpose whatsoever. A limited license for public exhibition is granted to churches so long as no fee of any kind is charged. Commercial use of this program, including conferences, conventions,  internet, broadcast and fundraising, is strictly prohibited.</span><br></p>
+                <p class="copyright mbr-text mbr-fonts-style mbr-bold display-7" style="font-size:10px;"><span>© 2018 Willow Creek Association.  Todos los derechos reservados. La distribución no autorizada esta prohibida. P.P. Box 3188, Barrington, IL 60011-3188. ADVERTENCIA: no se puede hacer copias de este contenido, en su totalidad o parcial, por ningún motivo o propósito. Se concede una licencia limitada para exhibición pública a las iglesias siempre que no se cobre ningún tipo de tarifa. El uso comercial de este programa, incluidas conferencias, convenciones, internet, difusión y recaudación de fondos, está estrictamente prohibido.</span><br></p>
             </div>
                 
         </div>

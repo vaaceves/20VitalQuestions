@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load staticfiles %} <!DOCTYPE html>
 <html amp>
 <head>
   <!-- Site made with Mobirise Website Builder v4.8.4, https:// -->
@@ -52,8 +52,8 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                 </li></ul>
             
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
-                  Contact</a><a class="btn btn-sm btn-primary display-4" href="login.html">
-                 Log In</a> </div>
+                  Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
+                  Log In</a>{% endif %} </div>
       </div>
     </amp-sidebar>
   <section class="menu horizontal-menu cid-rfWb7nKSu3" id="menu1-a">
@@ -64,7 +64,7 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     <nav class="navbar navbar-dropdown  navbar-fixed-top navbar-expand-lg">
       <div class="navbar-brand">
           <span class="navbar-logo">
-              <amp-img src="assets/images/tgls2018-logos-others-90x83.png" layout="responsive" width="55.3012048192771" height="51" alt="Mobirise" class="mobirise-loader">
+              <amp-img src=" {% static 'assets/images/tgls2018-logos-others-90x83.png'  %}" layout="responsive" width="55.3012048192771" height="51" alt="Mobirise" class="mobirise-loader">
                   <div placeholder="" class="placeholder">
                                 <div class="mobirise-spinner">
                                     <em></em>
@@ -74,7 +74,7 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                   
               </amp-img>
           </span>
-          <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5" href="index.html">The Global Leadership Summit</a></span>
+          <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5" href="{% url 'index_eng' %}">The Global Leadership Summit</a></span>
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
@@ -93,8 +93,8 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                 </li></ul>
             
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
-                  Contact</a><a class="btn btn-sm btn-primary display-4" href="login.html">
-                 Log In</a> </div>
+                  Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
+                  Log In</a>{% endif %} </div>
       </div>
       
       <button on="tap:sidebar.toggle" class="ampstart-btn hamburger sticky-but">
