@@ -1,4 +1,4 @@
-{% load staticfiles %} <!DOCTYPE html>
+{% load staticfiles %} {% load app_filters %}<!DOCTYPE html>
 <html amp>
 <head>
   <!-- Site made with Mobirise Website Builder v4.9.1, https://mobirise.com -->
@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.9.1, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/tgls2018-logos-others-90x83-90x83.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'assets/images/tgls2018-logos-others-90x83-90x83.png' %}" type="image/x-icon">
   <meta name="description" content="">
   <title>Contacto</title>
   
@@ -39,22 +39,24 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     
         
         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                <a class="nav-link link text-black display-4" href="about.html">
-                    About</a>
+                <a class="nav-link link text-black display-4" href="{% url 'about_eng' %}">
+                        About</a>
             </li><li class="nav-item dropdown">
                 <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
                 <div class="dropdown-menu">
-                    <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                    <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
-                </div>
+                        {% for topic in topics %}
+                        <a class="text-black dropdown-item display-4" href="{% url 'topic_eng' topic.slug %}">{{ topic.name_eng }}</a>
+                        {% endfor %}
+                    </div>
             </li><li class="nav-item">
-                <a class="nav-link link text-black display-4" href="all-videos.html">
-                    Videos</a>
+                <a class="nav-link link text-black display-4" href="{% url 'all_videos_eng' %}">
+                        Videos</a>
             </li></ul>
         
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
               Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
-                  Log In</a>{% endif %} </div>
+                  Log In</a>{% endif %} <a class="display-4" href="{{ request.get_full_path|to_spa }}">
+                  <img style="margin-bottom: -10px;" height="30px" width="40px" src="{% static 'assets/images/spain_round_icon_64.png' %}"></a></div>
       </div>
     </amp-sidebar>
   <section class="menu horizontal-menu cid-rfWb7nKSu3" id="menu1-t">
@@ -80,22 +82,24 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
               
               <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                      <a class="nav-link link text-black display-4" href="about.html">
-                          About</a>
+                      <a class="nav-link link text-black display-4" href="{% url 'about_eng' %}">
+                        About</a>
                   </li><li class="nav-item dropdown">
                       <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
                       <div class="dropdown-menu">
-                          <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                          <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
-                      </div>
+                        {% for topic in topics %}
+                        <a class="text-black dropdown-item display-4" href="{% url 'topic_eng' topic.slug %}">{{ topic.name_eng }}</a>
+                        {% endfor %}
+                    </div>
                   </li><li class="nav-item">
-                      <a class="nav-link link text-black display-4" href="all-videos.html">
-                          Videos</a>
+                      <a class="nav-link link text-black display-4" href="{% url 'all_videos_eng' %}">
+                        Videos</a>
                   </li></ul>
               
               <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
                     Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
-                  Log In</a>{% endif %} </div>
+                  Log In</a>{% endif %} <a class="display-4" href="{{ request.get_full_path|to_spa }}">
+                  <img style="margin-bottom: -10px;" height="30px" width="40px" src="{% static 'assets/images/spain_round_icon_64.png' %}"></a></div>
       </div>
       
       <button on="tap:sidebar.toggle" class="ampstart-btn hamburger sticky-but">

@@ -22,6 +22,7 @@ def index_spa(request):
     topic3 = Topic.objects.get(id=3)
     topic4 = Topic.objects.get(id=4)
     topic5 = Topic.objects.get(id=5)
+    topics = Topic.objects.all()
 
     context_dic = {
         'topic1': topic1,
@@ -29,9 +30,33 @@ def index_spa(request):
         'topic3': topic3,
         'topic4': topic4,
         'topic5': topic5,
+        'topics': topics
     }
 
     return render(request, 'questions/spa/index.html', context_dic)
+
+
+# contact
+def contact_spa(request):
+    topics = Topic.objects.all()
+
+    context_dic = {
+        'topics': topics
+    }
+
+    return render(request, 'questions/spa/contact.html', context_dic)
+
+
+# about
+@login_required(login_url='login_spa')
+def about_spa(request):
+    topics = Topic.objects.all()
+
+    context_dic = {
+        'topics': topics
+    }
+
+    return render(request, 'questions/spa/about.html', context_dic)
 
 
 # login
@@ -39,6 +64,7 @@ class LoginUserViewSpa(View):
     login_form = LoginUserForm()
     login_error_message = None
     template = 'questions/spa/login.html'
+    topics = Topic.objects.all()
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
@@ -59,8 +85,78 @@ class LoginUserViewSpa(View):
     def get_context(self):
         return {
             'login_form': self.login_form,
-            'login_error_message': self.login_error_message
+            'login_error_message': self.login_error_message,
+            'topics': self.topics
         }
+
+
+# questions by topic spa
+@login_required(login_url='login_spa')
+def topic_spa(request, slug):
+    topics = Topic.objects.all()
+    context_dict = {
+        'topics':topics
+    }
+    try:
+        topic = Topic.objects.get(slug=slug)
+        questions = Question.objects.filter(topic=topic)
+        context_dict['topic'] = topic
+        context_dict['questions'] = questions
+
+    except Topic.DoesNotExist:
+        context_dict['topic'] = None
+        context_dict['questions'] = None
+
+    return render(request, 'questions/spa/topic.html', context_dict)
+
+
+# question
+@login_required(login_url='login_spa')
+def question_spa(request, slug):
+    topics = Topic.objects.all()
+    context_dict = {
+        'topics': topics
+    }
+    try:
+        question = Question.objects.get(slug=slug)
+        context_dict['question'] = question
+
+    except Topic.DoesNotExist:
+        context_dict['question'] = None
+
+    return render(request, 'questions/spa/video.html', context_dict)
+
+
+# all videos
+@login_required(login_url='login_spa')
+def all_videos_spa(request):
+    topic1 = Topic.objects.get(id=1)
+    topic2 = Topic.objects.get(id=2)
+    topic3 = Topic.objects.get(id=3)
+    topic4 = Topic.objects.get(id=4)
+    topic5 = Topic.objects.get(id=5)
+    questions1 = Question.objects.filter(topic=topic1)
+    questions2 = Question.objects.filter(topic=topic2)
+    questions3 = Question.objects.filter(topic=topic3)
+    questions4 = Question.objects.filter(topic=topic4)
+    questions5 = Question.objects.filter(topic=topic5)
+    topics = Topic.objects.all()
+
+    context_dic = {
+        'topic1': topic1,
+        'topic2': topic2,
+        'topic3': topic3,
+        'topic4': topic4,
+        'topic5': topic5,
+        'questions1': questions1,
+        'questions2': questions2,
+        'questions3': questions3,
+        'questions4': questions4,
+        'questions5': questions5,
+        'topics': topics
+    }
+
+    return render(request, 'questions/spa/all-videos.html', context_dic)
 
 
 #
@@ -73,6 +169,7 @@ def index_eng(request):
     topic3 = Topic.objects.get(id=3)
     topic4 = Topic.objects.get(id=4)
     topic5 = Topic.objects.get(id=5)
+    topics = Topic.objects.all()
 
     context_dic = {
         'topic1': topic1,
@@ -80,9 +177,33 @@ def index_eng(request):
         'topic3': topic3,
         'topic4': topic4,
         'topic5': topic5,
+        'topics': topics
     }
 
     return render(request, 'questions/eng/index.html', context_dic)
+
+
+# contact
+def contact_eng(request):
+    topics = Topic.objects.all()
+
+    context_dic = {
+        'topics': topics
+    }
+
+    return render(request, 'questions/eng/contact.html', context_dic)
+
+
+# about
+@login_required(login_url='login_eng')
+def about_eng(request):
+    topics = Topic.objects.all()
+
+    context_dic = {
+        'topics': topics
+    }
+
+    return render(request, 'questions/eng/about.html', context_dic)
 
 
 # login
@@ -90,6 +211,7 @@ class LoginUserViewEng(View):
     login_form = LoginUserForm()
     login_error_message = None
     template = 'questions/eng/login.html'
+    topics = Topic.objects.all()
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
@@ -110,8 +232,78 @@ class LoginUserViewEng(View):
     def get_context(self):
         return {
             'login_form': self.login_form,
-            'login_error_message': self.login_error_message
+            'login_error_message': self.login_error_message,
+            'topics': self.topics
         }
+
+
+# questions by topic eng
+@login_required(login_url='login_eng')
+def topic_eng(request, slug):
+    topics = Topic.objects.all()
+    context_dict = {
+        'topics': topics
+    }
+    try:
+        topic = Topic.objects.get(slug=slug)
+        questions = Question.objects.filter(topic=topic)
+        context_dict['topic'] = topic
+        context_dict['questions'] = questions
+
+    except Topic.DoesNotExist:
+        context_dict['topic'] = None
+        context_dict['questions'] = None
+
+    return render(request, 'questions/eng/topic.html', context_dict)
+
+
+# question
+@login_required(login_url='login_eng')
+def question_eng(request, slug):
+    topics = Topic.objects.all()
+    context_dict = {
+        'topics': topics
+    }
+    try:
+        question = Question.objects.get(slug=slug)
+        context_dict['question'] = question
+
+    except Topic.DoesNotExist:
+        context_dict['question'] = None
+
+    return render(request, 'questions/eng/video.html', context_dict)
+
+
+# all videos
+@login_required(login_url='login_eng')
+def all_videos_eng(request):
+    topic1 = Topic.objects.get(id=1)
+    topic2 = Topic.objects.get(id=2)
+    topic3 = Topic.objects.get(id=3)
+    topic4 = Topic.objects.get(id=4)
+    topic5 = Topic.objects.get(id=5)
+    questions1 = Question.objects.filter(topic=topic1)
+    questions2 = Question.objects.filter(topic=topic2)
+    questions3 = Question.objects.filter(topic=topic3)
+    questions4 = Question.objects.filter(topic=topic4)
+    questions5 = Question.objects.filter(topic=topic5)
+    topics = Topic.objects.all()
+
+    context_dic = {
+        'topic1': topic1,
+        'topic2': topic2,
+        'topic3': topic3,
+        'topic4': topic4,
+        'topic5': topic5,
+        'questions1': questions1,
+        'questions2': questions2,
+        'questions3': questions3,
+        'questions4': questions4,
+        'questions5': questions5,
+        'topics': topics
+    }
+
+    return render(request, 'questions/eng/all-videos.html', context_dic)
 
 
 #
@@ -123,14 +315,4 @@ def logout(request):
     return redirect('index_eng')
 
 
-register = template.Library()
 
-
-@register.filter
-def to_en(value):
-    return value.replace("es", "en")
-
-
-@register.filter
-def to_spa(value):
-    return value.replace("en", "es")

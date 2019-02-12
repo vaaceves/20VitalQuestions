@@ -1,4 +1,4 @@
-{% load staticfiles %} <!DOCTYPE html>
+{% load staticfiles %} {% load app_filters %}{% load app_filters %}<!DOCTYPE html>
 <html amp>
 <head>
   <!-- Site made with Mobirise Website Builder v4.9.1, https://mobirise.com -->
@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.9.1, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/tgls2018-logos-others-90x83-90x83.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'assets/images/tgls2018-logos-others-90x83-90x83.png' %}" type="image/x-icon">
   <meta name="description" content="">
-  <title>All Videos</title>
+  <title>{{ topic.name_eng }}</title>
   
 <link rel="canonical" href="all-videos.html">
  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -39,22 +39,24 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     
         
         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                <a class="nav-link link text-black display-4" href="about.html">
-                    About</a>
+                <a class="nav-link link text-black display-4" href="{% url 'about_eng' %}">
+                        About</a>
             </li><li class="nav-item dropdown">
                 <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
                 <div class="dropdown-menu">
-                    <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                    <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
-                </div>
+                        {% for topic in topics %}
+                        <a class="text-black dropdown-item display-4" href="{% url 'topic_eng' topic.slug %}">{{ topic.name_eng }}</a>
+                        {% endfor %}
+                    </div>
             </li><li class="nav-item">
-                <a class="nav-link link text-black display-4" href="all-videos.html">
-                    Videos</a>
+                <a class="nav-link link text-black display-4" href="{% url 'all_videos_eng' %}">
+                        Videos</a>
             </li></ul>
         
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
               Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
-                  Log In</a>{% endif %} </div>
+                  Log In</a>{% endif %} <a class="display-4" href="{{ request.get_full_path|to_spa }}">
+                  <img style="margin-bottom: -10px;" height="30px" width="40px" src="{% static 'assets/images/spain_round_icon_64.png' %}"></a></div>
       </div>
     </amp-sidebar>
   <section class="menu horizontal-menu cid-rfWb7nKSu3" id="menu1-5">
@@ -80,22 +82,24 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
               
               <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                      <a class="nav-link link text-black display-4" href="about.html">
-                          About</a>
+                      <a class="nav-link link text-black display-4" href="{% url 'about_eng' %}">
+                        About</a>
                   </li><li class="nav-item dropdown">
                       <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
                       <div class="dropdown-menu">
-                          <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                          <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
-                      </div>
+                        {% for topic in topics %}
+                        <a class="text-black dropdown-item display-4" href="{% url 'topic_eng' topic.slug %}">{{ topic.name_eng }}</a>
+                        {% endfor %}
+                    </div>
                   </li><li class="nav-item">
-                      <a class="nav-link link text-black display-4" href="all-videos.html">
-                          Videos</a>
+                      <a class="nav-link link text-black display-4" href="{% url 'all_videos_eng' %}">
+                        Videos</a>
                   </li></ul>
               
               <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
                     Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
-                  Log In</a>{% endif %} </div>
+                  Log In</a>{% endif %} <a class="display-4" href="{{ request.get_full_path|to_spa }}">
+                  <img style="margin-bottom: -10px;" height="30px" width="40px" src="{% static 'assets/images/spain_round_icon_64.png' %}"></a></div>
       </div>
       
       <button on="tap:sidebar.toggle" class="ampstart-btn hamburger sticky-but">
@@ -118,7 +122,7 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     <div class="container">
         <div class="mbr-row mbr-justify-content-center">
             <div class="mbr-col-md-12 mbr-col-lg-10">
-                <h2 class="mbr-section-title mbr-fonts-style l-spacing3 display-2 text-white">Self Leadership</h2>
+                <h2 class="mbr-section-title mbr-fonts-style l-spacing3 display-2 text-white">{{ topic.name_eng }}  </h2>
                 
                 <svg class="arrow-icon-2" xmlns="http://www.w3.org/2000/svg" height="80" width="30" viewBox="0 0 40 80"><path d="M30.6 47.5c-.6-.5-1.6-.4-2.1.2L19 59.6V5.5c0-.8-.7-1.5-1.5-1.5S16 4.7 16 5.5v54.1L6.5 47.7c-.6-.6-1.5-.7-2.1-.2-.7.5-.8 1.5-.3 2.1l12.2 15.2c.3.4.7.6 1.2.6s.9-.2 1.2-.6l12.2-15.2c.5-.6.4-1.6-.3-2.1z"></path></svg>
                 
@@ -130,62 +134,22 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
 
 <section class="carousel1 slider testimonials-carousel cid-rhkAWCpFwj" id="testimonials-carousel3-y">
     <div class="container">
-        <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400"><amp-fit-text width="400" height="400">
+        <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400">
+            {% for question in questions %}
+            <amp-fit-text width="400" height="400">
                     <div class="text-wrap">
                         <div class="text-content">
-                            <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
+                            <center><img width="100" src="{{ question.thumbnail.url }}"></img></center>
                             <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
+                                {{ question.name_eng }}
                             </p>
-                           <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
+                           <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">{{ question.speaker }}</p>
+                            <a class="btn btn-sm btn-primary display-4" href="{% url 'question_eng' question.slug %}">Go to the Video</a>
                         </div>
                     </div>
-                </amp-fit-text><amp-fit-text width="400" height="400">
-                    <div class="text-wrap">
-                        <div class="text-content">
-                            <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                            <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
-                            </p>
-                           <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                        </div>
-                    </div>
-                </amp-fit-text><amp-fit-text width="400" height="400">
-                    <div class="text-wrap">
-                        <div class="text-content">
-                            <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                            <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
-                            </p>
-                           <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                        </div>
-                    </div>
-                </amp-fit-text><amp-fit-text width="400" height="400">
-                    <div class="text-wrap">
-                        <div class="text-content">
-                            <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                            <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
-                            </p>
-                           <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                        </div>
-                    </div>
-                </amp-fit-text><amp-fit-text width="400" height="400">
-                    <div class="text-wrap">
-                        <div class="text-content">
-                            <center><img width="100" src="assets/images/JohnMaxwell.png"></img></center>
-                            <p class="mbr-fonts-style mbr-text card-text display-7">
-                                How can we become better encouragers?
-                            </p>
-                           <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">John Maxwell</p>
-                            <a class="btn btn-sm btn-primary display-4" href="login.html">Go to the Video</a>
-                        </div>
-                    </div>
-                </amp-fit-text></amp-carousel>
+            </amp-fit-text>
+            {% endfor %}
+        </amp-carousel>
             
         </div>
     </div>

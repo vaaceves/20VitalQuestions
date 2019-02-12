@@ -1,4 +1,4 @@
-{% load staticfiles %} <!DOCTYPE html>
+{% load staticfiles %} {% load app_filters %}<!DOCTYPE html>
 <html amp>
 <head>
   <!-- Site made with Mobirise Website Builder v4.8.4, https:// -->
@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.8.4, ">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/tgls2018-logos-others-90x83-90x83.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'assets/images/tgls2018-logos-others-90x83-90x83.png' %}" type="image/x-icon">
   <meta name="description" content="">
   <title>Home</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,16 +39,17 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
         
             
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="about.html">
+                    <a class="nav-link link text-black display-4" href="{% url 'about_eng' %}">
                         About</a>
                 </li><li class="nav-item dropdown">
                     <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
                     <div class="dropdown-menu">
-                        <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                        <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
+                        {% for topic in topics %}
+                        <a class="text-black dropdown-item display-4" href="{% url 'topic_eng' topic.slug %}">{{ topic.name_eng }}</a>
+                        {% endfor %}
                     </div>
                 </li><li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="all-videos.html">
+                    <a class="nav-link link text-black display-4" href="{% url 'all_videos_eng' %}">
                         Videos</a>
                 </li></ul>
             
@@ -81,16 +82,17 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="about.html">
+                    <a class="nav-link link text-black display-4" href="{% url 'about_eng' %}">
                         About</a>
                 </li><li class="nav-item dropdown">
                     <a class="nav-link link text-black dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">Topics</a>
                     <div class="dropdown-menu">
-                        <a class="text-black dropdown-item display-4" href="topic.html">Self Leadership</a>
-                        <a class="text-black dropdown-item display-4" href="topic.html">Interpersonal Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Organizational Leadership</a><a class="text-black dropdown-item display-4" href="topic.html">Visionary Leadership</a><a class="text-black dropdown-item display-4" href="about.html">Church Leadership</a>
+                        {% for topic in topics %}
+                        <a class="text-black dropdown-item display-4" href="{% url 'topic_eng' topic.slug %}">{{ topic.name_eng }}</a>
+                        {% endfor %}
                     </div>
                 </li><li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="all-videos.html">
+                    <a class="nav-link link text-black display-4" href="{% url 'all_videos_eng' %}">
                         Videos</a>
                 </li></ul>
             
@@ -124,8 +126,12 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
         <h1 class="mbr-section-title mbr-fonts-style align-right  mbr-black l-spacing3 display-2" style="color:white;" ><strong>20 Vital Questions</strong></h1>
         
         <p class="mbr-fonts-style mbr-text align-right mbr-black display-6" style="color:white;" ><strong>Leadership Conversation Starters</strong><br><br>20 Videos to develop your Leadership & Team <br>in 10 minutes or less </p>
-
+        {% if user.is_authenticated %}
+        <div class="mbr-section-btn align-right"><a class="btn btn-md btn-white display-4">Welcome!</a></div>
+        {% else %}
         <div class="mbr-section-btn align-right"><a class="btn btn-md btn-white display-4" href="login.html">Log In</a></div>
+        {% endif %}
+
     </div>
 </section>
 
