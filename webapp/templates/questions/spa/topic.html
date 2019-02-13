@@ -138,18 +138,28 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
     <div class="container">
         <div class="slider-box"><amp-carousel class="carousel" layout="fixed-height" type="carousel" height="400">
             {% for question in questions %}
-            <amp-fit-text width="400" height="400">
-                    <div class="text-wrap">
-                        <div class="text-content">
-                            <center><img width="100" src="{{ question.thumbnail.url }}"></img></center>
-                            <p class="mbr-fonts-style mbr-text card-text display-7">
-                                {{ question.name_spa }}
-                            </p>
-                           <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">{{ question.speaker }}</p>
-                            <a class="btn btn-sm btn-primary display-4" href="{% url 'question_spa' question.slug %}">Ir al Video</a>
-                        </div>
-                    </div>
-            </amp-fit-text>
+            <amp-fit-text width="400" height="500">
+                            <div class="text-wrap">
+                                <div class="text-content">
+                                    <div style="height: 100px;">
+                                        <center><img height="100" src="{{ question.thumbnail.url }}"></img></center>
+                                    </div>
+                                    <div style="height: 70px;">
+                                        <p class="mbr-fonts-style mbr-text card-text display-7">
+                                        {{ question.name_spa }}
+                                        </p>
+                                    </div>
+                                    <div style="height: 50px;">
+                                        <p class="mbr-fonts-style mbr-text card-signature mbr-bold display-7" style="margin-bottom: 10px;">{{ question.speaker }}</p>
+                                    </div>
+                                    <div style="height: 100px;">
+                                        <center>
+                                        <a class="btn btn-sm btn-primary display-4" style="width: 90%;" href="{% url 'question_spa' question.slug %}">Ir al Video</a>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                    </amp-fit-text>
             {% endfor %}
         </amp-carousel>
             
