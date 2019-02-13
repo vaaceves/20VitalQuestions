@@ -129,7 +129,7 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
         {% if user.is_authenticated %}
         <div class="mbr-section-btn align-right"><a class="btn btn-md btn-white display-4">Bienvenido!</a></div>
         {% else %}
-        <div class="mbr-section-btn align-right"><a class="btn btn-md btn-white display-4" href="login.html">Iniciar Sesión</a></div>
+        <div class="mbr-section-btn align-right"><a class="btn btn-md btn-white display-4" href="{% url 'login_spa' %}">Iniciar Sesión</a></div>
         {% endif %}
     </div>
 </section>
