@@ -62,6 +62,11 @@
                     <br>
                     <br>
                 <button type="submit" value="Iniciar Sesion">Iniciar Sesion</button>
+          <br>
+          <br>
+              {% if login_error_message %}
+              {{ login_error_message }}
+              {% endif %}
             </form>
       </center>
 
