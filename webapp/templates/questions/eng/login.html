@@ -63,7 +63,9 @@
                     <br>
                 <button type="submit" value="Iniciar Sesion">Log In</button>
                 <br><br>
+                    <h4>You dont have an account? <a href="{% url 'signup_spa' %}" style="text-decoration-color: #1d95d2; color: #1d95d2">Sign Up</a> </h4>
               {% if login_error_message %}
+                  <br><br>
               {{ login_error_message }}
               {% endif %}
             </form>

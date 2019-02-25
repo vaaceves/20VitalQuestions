@@ -1,14 +1,16 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from .models import Topic, Question
-from .forms import LoginUserForm
+from .forms import LoginUserForm, SignUpUserForm
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import login as login_django
 from django.contrib.auth import logout as logout_django
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import View, DetailView, ListView, TemplateView, FormView
+from django.views.generic import View, CreateView, DetailView, ListView, TemplateView, FormView
 from django import template
+from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -159,6 +161,32 @@ def all_videos_spa(request):
     return render(request, 'questions/spa/all-videos.html', context_dic)
 
 
+# SIGN UP
+class SignUpUserViewSpa(CreateView):
+    success_url = reverse_lazy('index_spa')
+    template_name = 'questions/spa/signup.html'
+    model = User
+    form_class = SignUpUserForm
+
+    def get(self, request, *args, **kwargs):
+        context_dic = {
+            'form': self.form_class,
+        }
+        if request.user.is_authenticated():
+            return redirect('home')
+
+        return render(request, self.template_name, context_dic)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.set_password(self.object.password)
+        self.object.save()
+        username, password = form.cleaned_data.get('username'), form.cleaned_data.get('password')
+        self.object = authenticate(username=username, password=password)
+        login(self.request, self.object)
+        return HttpResponseRedirect(self.get_success_url())
+
+
 #
 # ENGLISH VIEWS
 #
@@ -304,6 +332,32 @@ def all_videos_eng(request):
     }
 
     return render(request, 'questions/eng/all-videos.html', context_dic)
+
+
+# SIGN UP
+class SignUpUserViewEng(CreateView):
+    success_url = reverse_lazy('index_eng')
+    template_name = 'questions/eng/signup.html'
+    model = User
+    form_class = SignUpUserForm
+
+    def get(self, request, *args, **kwargs):
+        context_dic = {
+            'form': self.form_class,
+        }
+        if request.user.is_authenticated():
+            return redirect('home')
+
+        return render(request, self.template_name, context_dic)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.set_password(self.object.password)
+        self.object.save()
+        username, password = form.cleaned_data.get('username'), form.cleaned_data.get('password')
+        self.object = authenticate(username=username, password=password)
+        login(self.request, self.object)
+        return HttpResponseRedirect(self.get_success_url())
 
 
 #

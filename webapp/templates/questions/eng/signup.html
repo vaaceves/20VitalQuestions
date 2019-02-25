@@ -10,7 +10,7 @@
               height: 100%;
             }
             body {
-			background-image: url(https://35gqfp3yrprt31ywm6weg6j5-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/mountain_marquee.png) ;
+			background-image: url(https://global.willowcreek.com/img/2018_top.jpg) ;
 			background-position: center center;
 			background-repeat:  no-repeat;
 			background-attachment: fixed;
@@ -49,27 +49,23 @@
 <div class="wrapper">
   <div class="message" style="padding-top: 15%">
       <center>
-          <h2>Inciar Sesión</h2>
+          <h2>Sign Up</h2>
           <img src="{% static 'assets/images/tgls2018-logos-others-90x83-90x83.png' %}">
           <br>
           <form method="post">
                 {% csrf_token %}
                     <br>
-                {{ login_form.username }}
+                {{ form.username }}
                     <br>
                     <br>
-                {{ login_form.password }}
+                {{ form.email }}
                     <br>
                     <br>
-                <button type="submit" value="Iniciar Sesion">Iniciar Sesion</button>
-          <br>
-          <br>
-          <h4>¿No tienes una cuenta? <a href="{% url 'signup_spa' %}" style="text-decoration-color: #1d95d2; color: #1d95d2">Regístrate</a> </h4>
-              {% if login_error_message %}
-                  <br>
+                {{ form.password }}
                     <br>
-              {{ login_error_message }}
-              {% endif %}
+                    <br>
+                <button type="submit" value="Sign Up">Sign Up</button>
+                <br><br>
             </form>
       </center>
 

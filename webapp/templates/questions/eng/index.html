@@ -53,9 +53,10 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                         Videos</a>
                 </li></ul>
             
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="{% url 'contact_eng' %}">
                   Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
-                  Log In</a>{% endif %}<br><a class="display-4" href="{% url 'index_spa' %}">
+                  Log In</a><a class="btn btn-sm btn-primary display-4" href="{% url 'signup_eng' %}">
+                  Sign Up</a>{% endif %}<br><a class="display-4" href="{% url 'index_spa' %}">
                   <img style="margin-top:30px;" height="20px" width="25px" src="http://img.freeflagicons.com/thumb/round_icon/spain/spain_640.png"><span style="">Español</span></a></div>
       </div>
     </amp-sidebar>
@@ -96,9 +97,10 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
                         Videos</a>
                 </li></ul>
             
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="contact.html">
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="{% url 'contact_eng' %}">
                   Contact</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Log Out</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_eng' %}">
-                  Log In</a>{% endif %} <a class="display-4" href="{% url 'index_spa' %}">
+                  Log In</a><a class="btn btn-sm btn-primary display-4" href="{% url 'signup_eng' %}">
+                  Sign Up</a>{% endif %} <a class="display-4" href="{% url 'index_spa' %}">
                   <img style="margin-bottom: -10px;" height="30px" width="40px" src="{% static 'assets/images/spain_round_icon_64.png' %}"></a></div>
       </div>
       

@@ -17,27 +17,31 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from questions.views import logout, index_spa, index_eng, LoginUserViewSpa, LoginUserViewEng, topic_spa, topic_eng, contact_eng, contact_spa, about_eng, about_spa, question_eng, question_spa, all_videos_eng, all_videos_spa
+from questions.views import logout, index_spa, index_eng, LoginUserViewSpa, LoginUserViewEng, topic_spa, topic_eng, \
+    contact_eng, contact_spa, about_eng, about_spa, question_eng, question_spa, all_videos_eng, all_videos_spa, \
+    SignUpUserViewEng, SignUpUserViewSpa
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^logout/$',logout, name='logout'),
-    # ENGLISH URLS
-    url(r'^$', index_eng, name='index_eng'),
-    url(r'^en/login/$', LoginUserViewEng.as_view(), name='login_eng'),
-    url(r'^en/(?P<slug>[\w\-]+)/$', topic_eng, name='topic_eng'),
-    url(r'^en/view/(?P<slug>[\w\-]+)/$', question_eng, name='question_eng'),
-    url(r'^en/contact', contact_eng, name='contact_eng'),
-    url(r'^en/about', about_eng, name='about_eng'),
-    url(r'^en/videos', all_videos_eng, name='all_videos_eng'),
-    # SPANISH URLS
-    url(r'^es/$', index_spa, name='index_spa'),
-    url(r'^es/login/$', LoginUserViewSpa.as_view(), name='login_spa'),
-    url(r'^es/(?P<slug>[\w\-]+)/$', topic_spa, name='topic_spa'),
-    url(r'^es/view/(?P<slug>[\w\-]+)/$', question_spa, name='question_spa'),
-    url(r'^es/contact', contact_spa, name='contact_spa'),
-    url(r'^es/about', about_spa, name='about_spa'),
-    url(r'^es/videos', all_videos_spa, name='all_videos_spa'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  url(r'^admin/', admin.site.urls),
+                  url(r'^logout/$', logout, name='logout'),
+                  # ENGLISH URLS
+                  url(r'^$', index_eng, name='index_eng'),
+                  url(r'^en/login/$', LoginUserViewEng.as_view(), name='login_eng'),
+                  url(r'^en/signup/$', SignUpUserViewEng.as_view(), name='signup_eng'),
+                  url(r'^en/(?P<slug>[\w\-]+)/$', topic_eng, name='topic_eng'),
+                  url(r'^en/view/(?P<slug>[\w\-]+)/$', question_eng, name='question_eng'),
+                  url(r'^en/contact', contact_eng, name='contact_eng'),
+                  url(r'^en/about', about_eng, name='about_eng'),
+                  url(r'^en/videos', all_videos_eng, name='all_videos_eng'),
+                  # SPANISH URLS
+                  url(r'^es/$', index_spa, name='index_spa'),
+                  url(r'^es/login/$', LoginUserViewSpa.as_view(), name='login_spa'),
+                  url(r'^es/signup/$', SignUpUserViewSpa.as_view(), name='signup_spa'),
+                  url(r'^es/(?P<slug>[\w\-]+)/$', topic_spa, name='topic_spa'),
+                  url(r'^es/view/(?P<slug>[\w\-]+)/$', question_spa, name='question_spa'),
+                  url(r'^es/contact', contact_spa, name='contact_spa'),
+                  url(r'^es/about', about_spa, name='about_spa'),
+                  url(r'^es/videos', all_videos_spa, name='all_videos_spa'),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = '20 Vital Questions'

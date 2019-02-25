@@ -55,7 +55,8 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
             
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="{% url 'contact_spa' %}">
               Contacto</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Cerrar Sesión</a>{% else %}{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Cerrar Sesión</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_spa' %}">
-                  Iniciar Sesión</a>{% endif %}{% endif %}<br><a class="display-4" href="{% url 'index_eng' %}">
+                  Iniciar Sesión</a><a class="btn btn-sm btn-primary display-4" href="{% url 'signup_spa' %}">
+                  Regístrate</a>{% endif %}{% endif %}<br><a class="display-4" href="{% url 'index_eng' %}">
                   <img style="margin-top:30px;" height="20px" width="25px" src="http://img.freeflagicons.com/thumb/round_icon/united_states_of_america/united_states_of_america_640.png"><span style="">Español</span></a></div>
       </div>
     </amp-sidebar>
@@ -98,7 +99,8 @@ body{font-family: Roboto;}blockquote{border-color: #1d95d2;}.display-1{font-fami
             
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary-outline display-4" href="{% url 'contact_spa' %}">
               Contacto</a>{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Cerrar Sesión</a>{% else %}{% if user.is_authenticated %}<a class="btn btn-sm btn-primary display-4" href="{% url 'logout' %}">Cerrar Sesión</a>{% else %}<a class="btn btn-sm btn-primary display-4" href="{% url 'login_spa' %}">
-                  Iniciar Sesión</a>{% endif %}{% endif %}<a class="display-4" href="{% url 'index_eng' %}">
+                  Iniciar Sesión</a><a class="btn btn-sm btn-primary display-4" href="{% url 'signup_spa' %}">
+                  Regístrate</a>{% endif %}{% endif %}<a class="display-4" href="{% url 'index_eng' %}">
                   <img style="margin-bottom: -10px;" height="30px" width="40px" src="{% static 'assets/images/united_states_of_america_round_icon_64.png' %}"></a></div>
       </div>
       
