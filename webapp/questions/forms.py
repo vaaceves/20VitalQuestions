@@ -14,6 +14,10 @@ ERROR_MESSAGE_PASSWORD = {
     'required': 'Password is required',
     'invalid': 'The Password format is incorrect, password must be at leat 8 characters long and contain a number or a symbol'
 }
+ERROR_MESSAGE_LICENSE = {
+    'required': 'License Code is required',
+    'invalid': 'License Code Invalid. Contact us at vitalquestions@thinkof.tech'
+}
 
 ERROR_MESSAGE_EMAIL = {
     'required': 'Email is required',
@@ -38,6 +42,7 @@ class SignUpUserForm(forms.ModelForm):
     username = forms.CharField(max_length=20, error_messages=ERROR_MESSAGE_USER, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     email = forms.CharField(error_messages=ERROR_MESSAGE_EMAIL, widget=forms.TextInput(attrs={'placeholder': 'Email'}))
     password = forms.CharField(max_length=20, error_messages=ERROR_MESSAGE_PASSWORD, widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    license_code = forms.CharField(max_length=20, error_messages=ERROR_MESSAGE_LICENSE, widget=forms.TextInput(attrs={'placeholder': 'Enter your code'}))
 
     class Meta:
         model = User

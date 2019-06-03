@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_countries',
     'widget_tweaks',
     'questions',
+    'licenses',
 ]
 
 MIDDLEWARE = [
@@ -129,4 +131,7 @@ MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# from django.conf import settings
+# settings.AUTH_USER_MODEL = 'licenses.user'
 

@@ -149,13 +149,16 @@
           <form method="post">
                 {% csrf_token %}
                     <br>
-              {{ form.username }} <li style="font-weight: bolder; background-color: grey; padding: 5px; border-radius: 10px;" class="tooltip expand" data-title="Username may contain alphanumeric, _, @, +, . and - characters, but never white spaces."> ?</li>
+                {{ form.username }} <li style="font-weight: bolder; background-color: grey; padding: 5px; border-radius: 10px;" class="tooltip expand" data-title="Username may contain alphanumeric, _, @, +, . and - characters, but never white spaces."> ?</li>
                     <br>
                     <br>
                 {{ form.email }} <li style="font-weight: bolder; background-color: grey; padding: 5px; border-radius: 10px;" class="tooltip expand" data-title="Use valid email address, like this one: 'name@email.com'">?</li>
                     <br>
                     <br>
                 {{ form.password }} <li style="font-weight: bolder; background-color: grey; padding: 5px; border-radius: 10px;" class="tooltip expand" data-title="Password may be at leat 8 characters long and contain a number or a symbol">?</li>
+                    <br>
+                    <br>
+                {{ form.license_code }} <li style="font-weight: bolder; background-color: grey; padding: 5px; border-radius: 10px;" class="tooltip expand" data-title="Request a License Code to your vendor or contact us at vitalquestions@thinkof.tech">?</li>
                     <br>
                     <br>
                 <button type="submit" value="Sign Up">Sign Up</button>
