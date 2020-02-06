@@ -24,17 +24,17 @@ class Profile(models.Model):
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
-        license_to_check = instance.license_code
-        license_checked = License.objects.get(code=license_to_check)
-        if created and license_checked:
+        # license_to_check = instance.license_code
+        # license_checked = License.objects.get(code=license_to_check)
+        if created:
             Profile.objects.create(user=instance)
 
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
-        license_to_check = instance.license_code
-        license_checked = License.objects.get(code=license_to_check)
-        if license_checked:
-            instance.profile.save()
+        # license_to_check = instance.license_code
+        # license_checked = License.objects.get(code=license_to_check)
+        # if license_checked:
+        instance.profile.save()
 
     def __str__(self):
         return self.user.username
