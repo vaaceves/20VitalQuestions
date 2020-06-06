@@ -1,4 +1,4 @@
-django==1.11.15
+django==1.11.29
 Pillow==2.5.0
 django-autoslug
 django-admin-interface
